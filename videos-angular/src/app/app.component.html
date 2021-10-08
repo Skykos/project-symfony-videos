@@ -1,0 +1,53 @@
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" [routerLink]="['/inicio']">
+        <img src="../assets/images/logo-video.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        VideoLink
+      </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto" *ngIf="identity">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/inicio']">Mis Videos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/guardar-favorito']">Guardar Favoritos</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav nabvar-right" *ngIf="!identity">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/login']">Login </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/registro']">Registro</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav nabvar-right" *ngIf="identity">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" rolse="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{identity.name +' '+ identity.surname}}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" [routerLink]="['/ajustes']">Ajustes</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" [routerLink]="['/logout/1']">Cerrar Sesion</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav> <!--Fin de la barra de navegacion-->
+
+ 
+
+  <!--Contenido-->
+  <router-outlet></router-outlet>
+
+  <footer>
+    <hr>
+    <p> Symfony and Angular <b>Leonardo Oliveros</b> 2021 </p>
+  </footer>
+</div>
